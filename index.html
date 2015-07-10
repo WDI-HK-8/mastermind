@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The classic board game - mastermind">
+    <meta name="author" content="Kill Bill">
+    <!-- Stylesheets -->
+    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Script -->
+    <script src="assets/jquery/dist/jquery.min.js"></script>
+     <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/application.js"></script>
+  </head>
+  <body>
+    <div class="wrapper col-lg-12">
+      <section class="quesWrapper col-lg-9">
+          <h1>Master Mind</h1>
+          <div class="startGameRow">
+            <input class="p1Name col-lg-3" placeholder="Player One">
+            <input class="p2Name col-lg-3" placeholder="Player Two">
+            <!-- Later Remove -->
+            <button class="getStarted col-lg-2">START</button>
+          </div>
+          <!-- Later Shown -->
+          <table class="col-lg-12 table table-hover answerDisplay">
+            <tr class="inputName">
+              <th>TURN</th>
+              <th><span class="glyphicon glyphicon glyphicon-tint"></span></th>
+              <th><span class="glyphicon glyphicon-star"></span></th>
+              <th><span class="glyphicon glyphicon-leaf"></span></th>
+              <th><span class="glyphicon glyphicon-fire"></span></th>
+              <th>HINT</th>
+            </tr>
+            <tr class="answerList">
+              <td>
+                <p class="turnNum">1</p>
+              </td>
+              <td>
+                <div class="ansBullet whiteColor" title="grey"></div>
+              </td>
+              <td>
+                <div class="ansBullet whiteColor" title="grey"></div>
+              </td>
+              <td>
+                <div class="ansBullet whiteColor" title="grey"></div>
+              </td>
+              <td>
+                <div class="ansBullet whiteColor" title="grey"></div>
+              </td>
+              <td>
+                <div class="hintBullet greyColor"></div>
+                <div class="hintBullet greyColor"></div>
+                <div class="hintBullet greyColor"></div>
+                <div class="hintBullet greyColor"></div>
+              </td>
+            </tr>
+          </table>
+          <!-- Later Shown / Listner: Mousedown -->
+          <div class="showAnsRow col-lg-12">
+            <button class="showAns" disabled="true">SHOW ANSWER</button>
+          </div>
+      </section>
+      <section class="ansWrapper col-lg-3">
+        <h3 class="whoseTurn">Bill,</h3>
+        <p class="yourTurn">it is your turn!</p>
+        <div class="ansBox">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-tint"></span></div>
+          <input type="text" class="answer form-control" id="exampleInputAmount" placeholder="Take a guess!" disabled="true">
+          <button class="submitAns" disabled="true">ROCK ON</button>
+          <ul class="reference">
+            <li>
+              <div class="pressA"></div>
+              <p><span>enter</span>A<span>/a</span></p>
+            </li>
+            <li>
+              <div class="pressB"></div>
+              <p><span>enter</span>B<span>/b</span></p>
+            </li>
+            <li>
+              <div class="pressC"></div>
+              <p><span>enter</span>C<span>/c</span></p>
+            </li>
+            <li>
+              <div class="pressD"></div>
+              <p><span>enter</span>D<span>/d</span></p>
+            </li>
+             <li>
+              <div class="pressE"></div>
+              <p><span>enter</span>E<span>/e</span></p>
+            </li>
+            <li>
+              <div class="correct"></div>
+              <p>Correct Color and Place!</p>
+            </li>
+            <li>
+              <div class="partialCorrect"></div>
+              <p>Correct Color and wrong place!</p>
+            </li>
+          </ul>
+      </section>
+    </div>
+  </body>
+</html>
