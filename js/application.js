@@ -53,10 +53,10 @@ var readyGame = function (){
 	$('.startGameRow').after('<table class="col-lg-12 table table-hover answerDisplay"> <tr class="inputName"> <th>TURN</th> <th><span class="glyphicon glyphicon glyphicon-tint"></span></th> <th><span class="glyphicon glyphicon-star"></span></th> <th><span class="glyphicon glyphicon-leaf"></span></th> <th><span class="glyphicon glyphicon-fire"></span></th> <th>HINT</th> </tr> <tr class="answerList"> <td> <p class="turnNum">1</p> </td> <td> <div class="ansBullet whiteColor"></div> </td> <td> <div class="ansBullet whiteColor"></div> </td> <td> <div class="ansBullet whiteColor"></div> </td> <td> <div class="ansBullet whiteColor"></div> </td> <td> <div class="hintBullet greyColor"></div> <div class="hintBullet greyColor"></div> <div class="hintBullet greyColor"></div> <div class="hintBullet greyColor"></div> </td> </tr> </table>');
 	$('.yourTurn').text('it is your Turn!');
 	$('.startGameRow').replaceWith('<h3 class="ftw">For the Win!</h3>');
+	$('.answer').after('<button class="submitAns" disabled="true">ROCK ON</button>')
 	$('.showAns').attr('disabled', false);
 	$('.submitAns').attr('disabled', false);
 	$('.answer').attr('disabled', false);
-	$('.answer').after('<button class="submitAns" disabled="true">ROCK ON</button>')
 	$('.reference li:first-child').replaceWith('<li class="press"><div class="pressA" >pacifica</div> <p><span>enter</span>A<span>/a</span></p> </li>');
 	$('.reference li:nth-child(2)').replaceWith('<li class="press"><div class="pressB">caribic</div> <p><span>enter</span>B<span>/b</span></p> </li>');
 	$('.reference li:nth-child(3)').replaceWith('<li class="press"><div class="pressC">Chic</div> <p><span>enter</span>C<span>/c</span></p> </li>');
