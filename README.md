@@ -6,7 +6,7 @@
 	- Apple Chic (Green)
 	- Cheery (Red)
 	- Babyblue (Lightblue)
-- A sequence of 4 balls with a color randomly selected from the 5 colors as the Answer of this round of game
+- Four balls with a color drawn from the 5 colors above in order. They are the answer of this round of game.
 - Players take turn to pick 4 color balls
 - The objective of this game is to pick 4 color balls that matches the color and sequence of the answer
 
@@ -22,4 +22,9 @@
 6. The players make decisions based on guts and the previous hints.
 7. Good luck on finding the right answer!
 
-*Produced by Bill Chan 2015*
+### Installation
+1. Clone the repo to your local computer
+2. Run Bower install on your computer's terminal to get the dependencies
+3. Open the index.html file on any browser
+
+*Written by Bill Chan 2015*
