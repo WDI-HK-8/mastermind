@@ -6,7 +6,7 @@
 	- Apple Chic (Green)
 	- Cheery (Red)
 	- Babyblue (Lightblue)
-- Four balls with a color drawn from the 5 colors above in order. They are the answer of this round of game.
+- Four colored ball are randomly drawn
 - Players take turn to pick 4 color balls
 - The objective of this game is to pick 4 color balls that matches the color and sequence of the answer
 
