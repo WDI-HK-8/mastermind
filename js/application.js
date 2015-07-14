@@ -39,8 +39,8 @@ var getNameGetStart = function (){
 	if ($('.p1Name').val().length !== 0 && $('.p2Name').val().length !== 0) {
 		playerOneName = $('.p1Name').val();
 		playerTwoName = $('.p2Name').val();
-		currentPlayer = displayPlayer ();
 		readyGame ();
+		currentPlayer = displayPlayer ();
 	} else {
 		alert('YOUR DON\'T HAVE A NAME?');
 		return;
@@ -244,7 +244,7 @@ $(document).on('click', '.getStarted', function (){
 $(document).on('click', '.submitAns', function (){
 	displayPlayer ();
 	genTurnCount ();
-	if (getAnswer () == 'A' || getAnswer () == 'B' || getAnswer () == 'C' || getAnswer () == 'D' || getAnswer () == 'E') {
+	if (getAnswer () === 'A' || getAnswer () === 'B' || getAnswer () === 'C' || getAnswer () === 'D' || getAnswer () === 'E') {
 		if (counter < 5) {
 			genAnswerArray ();
 		}
