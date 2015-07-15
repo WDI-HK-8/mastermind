@@ -1,11 +1,11 @@
 # mastermind
 ### Game Setup
 - There are a total of 5 colors in the game
-	- Pacifica (Green-ish blue)
-	- Caribic (Orange)
-	- Apple Chic (Green)
-	- Cheery (Red)
-	- Babyblue (Lightblue)
+	- Blue
+	- Black
+	- Orange
+	- Purple
+	- Green
 - Four colored ball are randomly drawn
 - Players take turn to pick 4 color balls
 - The objective of this game is to pick 4 color balls that matches the color and sequence of the answer
