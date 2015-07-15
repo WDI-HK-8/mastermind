@@ -34,6 +34,7 @@ $(document).ready(function(){
 		$('.instruction').after('<div class="showAnsRow col-lg-12"> <button class="showAns" disabled="true">SHOW ANSWER</button> <p class="solutionText" style="display: none"></p> <div class="solutionCircle"></div> </div>');
 		$('.instruction').remove();
 		$('.answerDisplay').show();
+		$('.easyAnswer').show();
 		$('.yourTurn').text('it is your Turn!');
 		$('.startGameRow').replaceWith('<h3 class="ftw">For the Win!</h3>');
 		$('.answer').after('<button class="submitAns" disabled="true">ROCK ON</button>');
@@ -46,6 +47,23 @@ $(document).ready(function(){
 		$('.reference li:nth-child(4)').replaceWith('<li class="press"><div class="pressD">Purple</div> <p><span>enter</span>D<span>/d</span></p> </li>');
 		$('.reference li:nth-child(5)').replaceWith('<li class="press"><div class="pressE">Green</div> <p><span>enter</span>E<span>/e</span></p> </li>');
 	};
+
+	var displayEasyAnswer = function (){
+		switch (counter) {
+			case 1:
+				$('.easyAnswer').css('margin-left', 135);
+				break;
+			case 2:
+				$('.easyAnswer').css('margin-left', 226);
+				break;
+			case 3:
+				$('.easyAnswer').css('margin-left', 322);
+				break;
+			case 4:
+				$('.easyAnswer').css('margin-left', 416);
+				break;
+		}
+	}
 
 	// Don't use html to keep track of the track
 	var displayPlayer = function (){
@@ -223,11 +241,13 @@ $(document).ready(function(){
 					displayPlayer();
 					genTurnCount ();
 					counter = 1;
+					displayEasyAnswer ();
 					answerArray = [];
 					hintArray = [];
 				}
 			} else if (counter < 4) {
 				counter ++;
+				displayEasyAnswer ();
 			}
 			$('.answer').val('');
 		}
@@ -266,11 +286,13 @@ $(document).ready(function(){
 				displayPlayer();
 				genTurnCount ();
 				counter = 1;
+				displayEasyAnswer ();
 				answerArray = [];
 				hintArray = [];
 			}
 		} else if (counter < 4) {
 			counter ++;
+			displayEasyAnswer ();
 		}
 		$('.answer').val('');
 		switch (counter) {
@@ -310,6 +332,32 @@ $(document).ready(function(){
 	});
 
 	$(document).on('click', '.reference .press:nth-child(5)', function (){
+		$('.answer').val('E');
+		divClick ();
+	});
+
+	// easyAnswer
+	$(document).on('click', '.easyAnswer .easyAnswerBullet:first-child', function (){
+		$('.answer').val('A');
+		divClick ();
+	});
+
+	$(document).on('click', '.easyAnswer .easyAnswerBullet:nth-child(2)', function (){
+		$('.answer').val('B');
+		divClick ();
+	});
+
+	$(document).on('click', '.easyAnswer .easyAnswerBullet:nth-child(3)', function (){
+		$('.answer').val('C');
+		divClick ();
+	});
+
+	$(document).on('click', '.easyAnswer .easyAnswerBullet:nth-child(4)', function (){
+		$('.answer').val('D');
+		divClick ();
+	});
+
+	$(document).on('click', '.easyAnswer .easyAnswerBullet:nth-child(5)', function (){
 		$('.answer').val('E');
 		divClick ();
 	});

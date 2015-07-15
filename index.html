@@ -22,12 +22,6 @@
     <div class="wrapper col-lg-12">
       <section class="quesWrapper col-lg-9">
           <h1>Master Mind</h1>
-          <div class="startGameRow">
-            <input class="p1Name col-lg-3" placeholder="Player One's Name">
-            <input class="p2Name col-lg-3" placeholder="Player Two's Name">
-            <!-- Later Remove -->
-            <button class="getStarted col-lg-2">START</button>
-          </div>
           <!-- Later Shown -->
           <div class="instruction col-lg-12">
             <h1>Instructions</h1>
@@ -65,6 +59,12 @@
                 Have fun!
               </li>
             </ul>
+          </div>
+          <div class="startGameRow col-lg-12">
+            <input class="p1Name col-lg-3" placeholder="Player One's Name">
+            <input class="p2Name col-lg-3" placeholder="Player Two's Name">
+            <!-- Later Remove -->
+            <button class="getStarted col-lg-2">START</button>
           </div>
           <!-- Display when the game starts -->
           <table class="col-lg-12 table table-hover answerDisplay" style="display: none"> 
@@ -110,6 +110,13 @@
               </td>
             </tr>
           </table>
+          <div class="easyAnswer col-lg-1" style="display: none">
+            <div class="easyAnswerBullet blueColor"></div>
+            <div class="easyAnswerBullet blackColor"></div>
+            <div class="easyAnswerBullet coralColor"></div>
+            <div class="easyAnswerBullet purpleColor"></div>
+            <div class="easyAnswerBullet greenColor"></div>
+          </div>
       </section>
       <section class="ansWrapper col-lg-3">
         <h3 class="whoseTurn">Whoever,</h3>

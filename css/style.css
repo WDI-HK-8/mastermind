@@ -27,7 +27,7 @@ ul, ol {
 }
 
 .startGameRow {
-	margin-top: 20px;
+	margin-top: 30px;
 }
 
 .ftw {
@@ -58,6 +58,7 @@ ul, ol {
 	margin-top: 20px;
 	border: none;
 	background-color: powderblue;
+	margin-bottom: 0;
 }
 
 .answerDisplay tr {
@@ -190,6 +191,7 @@ h3.whoseTurn {
 	background-color: white;
 	text-align: left;
 	height: 50px;
+	z-index: 10000;
 }
 
 .showAnsRow .showAns {
@@ -359,7 +361,7 @@ h3.whoseTurn {
 
 /* Instruction */
 .instruction {
-	margin-top: 30px;
+	margin-top: 15px;
 	padding-left: 50px;
 	padding-top: 30px;
 	background-color: MintCream;
@@ -415,4 +417,24 @@ h3.whoseTurn {
 /*ref Hint Circles*/
 .refHint {
 	margin-top: 60px;
+}
+
+/*Easy Answer! yay!*/
+.easyAnswer {
+	height: 200px;
+	width: 95px;
+	background-color: powderblue;
+	margin-left: 135px;
+	padding-left: 8px;
+	border: 1px dashed whitesmoke;
+	padding-top: 10px;
+}
+
+.easyAnswer .easyAnswerBullet {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
 }
