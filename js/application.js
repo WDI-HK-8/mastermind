@@ -110,7 +110,7 @@ $(document).ready(function(){
 			winnerBulletArray.push('<div class = "winnerBullet ' + eachSolution + '"></span>');
 		}
 		for (var y = 0; y < winnerBulletArray.length; y++) {
-			$('.championWrapper .winnerBulletWrapper').prepend(winnerBulletArray[y]);
+			$('.championWrapper .winnerBulletWrapper').append(winnerBulletArray[y]);
 		}
 	};
 
@@ -314,7 +314,7 @@ $(document).ready(function(){
 			$('.answer').val('D');
 			divClick ();
 		} else if (e.keyCode == 53 && $('.ftw').text().length > 0) {
-			$('.answer').val('D');
+			$('.answer').val('E');
 			divClick ();
 		}
 	})
