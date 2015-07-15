@@ -37,15 +37,13 @@ $(document).ready(function(){
 		$('.easyAnswer').show();
 		$('.yourTurn').text('it is your Turn!');
 		$('.startGameRow').replaceWith('<h3 class="ftw">For the Win!</h3>');
-		$('.answer').after('<button class="submitAns" disabled="true">ROCK ON</button>');
 		$('.showAns').attr('disabled', false);
-		$('.submitAns').attr('disabled', false);
 		$('.answer').attr('disabled', false);
-		$('.reference li:first-child').replaceWith('<li class="press"><div class="pressA" >Blue</div> <p><span>enter</span>A<span>/a</span></p> </li>');
-		$('.reference li:nth-child(2)').replaceWith('<li class="press"><div class="pressB">Black</div> <p><span>enter</span>B<span>/b</span></p> </li>');
-		$('.reference li:nth-child(3)').replaceWith('<li class="press"><div class="pressC">Orange</div> <p><span>enter</span>C<span>/c</span></p> </li>');
-		$('.reference li:nth-child(4)').replaceWith('<li class="press"><div class="pressD">Purple</div> <p><span>enter</span>D<span>/d</span></p> </li>');
-		$('.reference li:nth-child(5)').replaceWith('<li class="press"><div class="pressE">Green</div> <p><span>enter</span>E<span>/e</span></p> </li>');
+		$('.reference li:first-child').replaceWith('<li class="press"><div class="pressA" >Blue</div> <p><span>enter</span>1</p> </li>');
+		$('.reference li:nth-child(2)').replaceWith('<li class="press"><div class="pressB">Black</div> <p><span>enter</span>2</p> </li>');
+		$('.reference li:nth-child(3)').replaceWith('<li class="press"><div class="pressC">Orange</div> <p><span>enter</span>3</p> </li>');
+		$('.reference li:nth-child(4)').replaceWith('<li class="press"><div class="pressD">Purple</div> <p><span>enter</span>4</p> </li>');
+		$('.reference li:nth-child(5)').replaceWith('<li class="press"><div class="pressE">Green</div> <p><span>enter</span>5</p> </li>');
 	};
 
 	var displayEasyAnswer = function (){
@@ -94,7 +92,6 @@ $(document).ready(function(){
 		return solutionArray;
 	};
 
-	// Switch is unnecessary 
 	var drawSolution = function (){
 		var drawSolutionArray = [];
 		for (var x = 0; x < solutionArray.length; x++) {
@@ -103,6 +100,17 @@ $(document).ready(function(){
 		}
 		for (var y = 0; y < drawSolutionArray.length; y++) {
 			$('.solutionCircle').append(drawSolutionArray[y]);
+		}
+	};
+
+	var drawWinnerBullet = function (){
+		var winnerBulletArray = [];
+		for (var x = 0; x < solutionArray.length; x++) {
+			var eachSolution = solutionArray[x];
+			winnerBulletArray.push('<div class = "winnerBullet ' + eachSolution + '"></span>');
+		}
+		for (var y = 0; y < winnerBulletArray.length; y++) {
+			$('.championWrapper .winnerBulletWrapper').prepend(winnerBulletArray[y]);
 		}
 	};
 
@@ -222,52 +230,6 @@ $(document).ready(function(){
 		drawSolution ();
 	});
 
-	$(document).on('click', '.submitAns', function (){
-		displayPlayer ();
-		genTurnCount ();
-		if (getAnswer () === 'A' || getAnswer () === 'B' || getAnswer () === 'C' || getAnswer () === 'D' || getAnswer () === 'E') {
-			if (counter < 5) {
-				genAnswerArray ();
-			}
-			if (counter == 4) {
-				fillHintBullet ();
-				getWinner ();
-				if (winner !== undefined && winner !== null) {
-					$('body').html('<div class="championWrapper"><h1 class="champion">'+ winner + '</h1><p class="championText">You are the Boss!</p></div>');
-					$('body').append('<audio src="assets/sound/rock.mp3" preload="auto" autoplay></audio>');
-				} else {
-					$('tr:last-child').after("<tr class=\"answerList\"><td><p class=\"turnNum\">1</p></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div></td></tr>");
-					trCount ++;
-					displayPlayer();
-					genTurnCount ();
-					counter = 1;
-					displayEasyAnswer ();
-					answerArray = [];
-					hintArray = [];
-				}
-			} else if (counter < 4) {
-				counter ++;
-				displayEasyAnswer ();
-			}
-			$('.answer').val('');
-		}
-		switch (counter) {
-			case 1:
-				$('.input-group-addon .glyphicon').replaceWith('<span class="glyphicon glyphicon-tint"></span>');
-				break;
-			case 2:
-				$('.input-group-addon .glyphicon').replaceWith('<span class="glyphicon glyphicon-star"></span>');
-				break;
-			case 3:
-				$('.input-group-addon .glyphicon').replaceWith('<span class="glyphicon glyphicon-leaf"></span>');
-				break;
-			case 4:
-				$('.input-group-addon .glyphicon').replaceWith('<span class="glyphicon glyphicon-fire"></span>');
-				break;
-		}	
-	});
-
-	// Click Div to get Answer
 	var divClick = function (){
 		displayPlayer ();
 		genTurnCount ();
@@ -278,7 +240,8 @@ $(document).ready(function(){
 			fillHintBullet ();
 			getWinner ();
 			if (winner !== undefined && winner !== null) {
-				$('body').html('<div class="championWrapper"><h1 class="champion">'+ winner + '</h1><p class="championText"><img src="assets/image/likeABoss.gif"></p></div>');
+				$('body').html('<div class="championWrapper"><h1 class="champion">'+ winner + '</h1><p class="championText"><img src="assets/image/likeABoss.gif"></p><div class="winnerBulletWrapper"></div></div>');
+				drawWinnerBullet ();
 				$('body').append('<audio src="assets/sound/rock.mp3" preload="auto" autoplay></audio>');
 			} else {
 				$('tr:last-child').after("<tr class=\"answerList\"><td><p class=\"turnNum\">1</p></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div></td></tr>");
@@ -311,57 +274,50 @@ $(document).ready(function(){
 		}	
 	};
 
-	$(document).on('click', '.reference .press:first-child', function (){
+	$(document).on('click', '.reference .press:first-child, .easyAnswer .easyAnswerBullet:first-child', function (){
 		$('.answer').val('A');
 		divClick ();
 	});
 
-	$(document).on('click', '.reference .press:nth-child(2)', function (){
+	$(document).on('click', '.reference .press:nth-child(2), .easyAnswerBullet:nth-child(2)', function (){
 		$('.answer').val('B');
 		divClick ();
 	});
 
-	$(document).on('click', '.reference .press:nth-child(3)', function (){
+	$(document).on('click', '.reference .press:nth-child(3), .easyAnswer .easyAnswerBullet:nth-child(3)', function (){
 		$('.answer').val('C');
 		divClick ();
 	});
 
-	$(document).on('click', '.reference .press:nth-child(4)', function (){
+	$(document).on('click', '.reference .press:nth-child(4), .easyAnswer .easyAnswerBullet:nth-child(4)', function (){
 		$('.answer').val('D');
 		divClick ();
 	});
 
-	$(document).on('click', '.reference .press:nth-child(5)', function (){
+	$(document).on('click', '.reference .press:nth-child(5), .easyAnswer .easyAnswerBullet:nth-child(5)', function (){
 		$('.answer').val('E');
 		divClick ();
 	});
 
-	// easyAnswer
-	$(document).on('click', '.easyAnswer .easyAnswerBullet:first-child', function (){
-		$('.answer').val('A');
-		divClick ();
-	});
-
-	$(document).on('click', '.easyAnswer .easyAnswerBullet:nth-child(2)', function (){
-		$('.answer').val('B');
-		divClick ();
-	});
-
-	$(document).on('click', '.easyAnswer .easyAnswerBullet:nth-child(3)', function (){
-		$('.answer').val('C');
-		divClick ();
-	});
-
-	$(document).on('click', '.easyAnswer .easyAnswerBullet:nth-child(4)', function (){
-		$('.answer').val('D');
-		divClick ();
-	});
-
-	$(document).on('click', '.easyAnswer .easyAnswerBullet:nth-child(5)', function (){
-		$('.answer').val('E');
-		divClick ();
-	});
-
+	// Press key
+	$(document).on('keydown', function(e){
+		if (e.keyCode == 49 && $('.ftw').text().length > 0) {
+			$('.answer').val('A');
+			divClick ();
+		} else if (e.keyCode == 50 && $('.ftw').text().length > 0) {
+			$('.answer').val('B');
+			divClick ();
+		} else if (e.keyCode == 51 && $('.ftw').text().length > 0) {
+			$('.answer').val('C');
+			divClick ();
+		} else if (e.keyCode == 52 && $('.ftw').text().length > 0) {
+			$('.answer').val('D');
+			divClick ();
+		} else if (e.keyCode == 53 && $('.ftw').text().length > 0) {
+			$('.answer').val('D');
+			divClick ();
+		}
+	})
 
 	// Show Answer
 	$(document).on('click', '.showAns', function (){  

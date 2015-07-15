@@ -428,6 +428,7 @@ h3.whoseTurn {
 	padding-left: 8px;
 	border: 1px dashed whitesmoke;
 	padding-top: 10px;
+	border-top: none;
 }
 
 .easyAnswer .easyAnswerBullet {
@@ -438,3 +439,27 @@ h3.whoseTurn {
 	margin-bottom: 5px;
 
 }
+
+/*Winner Bullet*/
+.championText {
+	padding-bottom: 10px;
+}
+
+.winnerBulletWrapper {
+	display: block;
+	width: 100%;
+	height: 350px;
+	padding-left: 280px;
+	padding-top: 30px;
+	text-align: center;
+}
+
+
+.winnerBullet {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	float: left;
+	margin: 5px 10px 5px 10px;
+}
+
