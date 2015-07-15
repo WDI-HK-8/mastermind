@@ -17,7 +17,7 @@ $(document).ready(function(){
 	var winner;
 
 	// Initiate the Game
-	// Gottaaaa Change the validation process
+	// Gottaaaa Change the validation process - NO CLUE!
 	var getNameGetStart = function (){
 		if ($('.p1Name').val().length !== 0 && $('.p2Name').val().length !== 0) {
 			playerOneName = $('.p1Name').val();
