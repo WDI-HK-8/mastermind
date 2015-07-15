@@ -6,7 +6,7 @@ $(document).ready(function(){
 var playerOneName;
 var playerTwoName;
 var currentPlayer;
-var turnCount = 0;
+var trCount = 1;
 
 var answerArray = [];
 var solutionArray = [];
@@ -33,7 +33,7 @@ var getNameGetStart = function (){
 var readyGame = function (){
 	$('.instruction').after('<div class="showAnsRow col-lg-12"> <button class="showAns" disabled="true">SHOW ANSWER</button> <p class="solutionText" style="display: none"></p> <div class="solutionCircle"></div> </div>');
 	$('.instruction').remove();
-	$('.startGameRow').after('<table class="col-lg-12 table table-hover answerDisplay"> <tr class="inputName"> <th>TURN</th> <th><span class="glyphicon glyphicon glyphicon-tint"></span></th> <th><span class="glyphicon glyphicon-star"></span></th> <th><span class="glyphicon glyphicon-leaf"></span></th> <th><span class="glyphicon glyphicon-fire"></span></th> <th>HINT</th> </tr> <tr class="answerList"> <td> <p class="turnNum">1</p> </td> <td> <div class="ansBullet whiteColor"></div> </td> <td> <div class="ansBullet whiteColor"></div> </td> <td> <div class="ansBullet whiteColor"></div> </td> <td> <div class="ansBullet whiteColor"></div> </td> <td> <div class="hintBullet greyColor"></div> <div class="hintBullet greyColor"></div> <div class="hintBullet greyColor"></div> <div class="hintBullet greyColor"></div> </td> </tr> </table>');
+	$('.answerDisplay').show();
 	$('.yourTurn').text('it is your Turn!');
 	$('.startGameRow').replaceWith('<h3 class="ftw">For the Win!</h3>');
 	$('.answer').after('<button class="submitAns" disabled="true">ROCK ON</button>')
@@ -60,9 +60,7 @@ var displayPlayer = function (){
 };
 
 var genTurnCount = function (){
-	turnCount = $('.answerList').length;
-	var currentTurn = $('.answerList:last-child td .turnNum');
-	$(currentTurn).text(turnCount);
+	$('.answerList:last-child td .turnNum').text(trCount);
 };
 
 // Get the solution
@@ -83,23 +81,7 @@ var drawSolution = function (){
 	var drawSolutionArray = [];
 	for (var x = 0; x < solutionArray.length; x++) {
 		var eachSolution = solutionArray[x];
-		switch(eachSolution) {
-			case 'blueColor':
-				drawSolutionArray.push('<div class="solutionBullet blueColor" style="display: none"></span>');
-				break;
-			case 'blackColor':
-				drawSolutionArray.push('<div class="solutionBullet blackColor" style="display: none"></span>');
-				break;
-			case 'coralColor':
-				drawSolutionArray.push('<div class="solutionBullet coralColor" style="display: none"></span>');
-				break;
-			case 'purpleColor':
-				drawSolutionArray.push('<div class="solutionBullet purpleColor" style="display: none"></span>');
-				break;
-			case 'greenColor':
-				drawSolutionArray.push('<div class="solutionBullet greenColor" style="display: none"></span>');
-				break;
-		}
+		drawSolutionArray.push('<div class="solutionBullet ' + eachSolution + '" style="display: none"></span>');
 	}
 	for (var y = 0; y < drawSolutionArray.length; y++) {
 		$('.solutionCircle').append(drawSolutionArray[y]);
@@ -116,25 +98,21 @@ var fillAnsBullet = function () {
 	switch(ans) {
 		case 'A':
 			ans = "blueColor";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet blueColor"></div></td>');
 			break;
 		case 'B':
 			ans = "blackColor";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet blackColor"></div></td>');
 			break;
 		case 'C':
 			ans = "coralColor";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet coralColor"></div></td>');
 			break;
 		case 'D':
 			ans = "purpleColor";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet purpleColor"></div></td>');
 			break;
 		case 'E':
 			ans = "greenColor";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet greenColor"></div></td>');
 			break;
 	}
+	$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet ' + ans + '"></div></td>');
 	return ans;
 };
 
@@ -241,6 +219,7 @@ $(document).on('click', '.submitAns', function (){
 				$('body').append('<audio src="assets/sound/rock.mp3" preload="auto" autoplay></audio>');
 			} else {
 				$('tr:last-child').after("<tr class=\"answerList\"><td><p class=\"turnNum\">1</p></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div></td></tr>");
+				trCount ++;
 				displayPlayer();
 				genTurnCount ();
 				counter = 1;
@@ -283,6 +262,7 @@ var divClick = function (){
 			$('body').append('<audio src="assets/sound/rock.mp3" preload="auto" autoplay></audio>');
 		} else {
 			$('tr:last-child').after("<tr class=\"answerList\"><td><p class=\"turnNum\">1</p></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div></td></tr>");
+			trCount ++;
 			displayPlayer();
 			genTurnCount ();
 			counter = 1;

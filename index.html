@@ -34,12 +34,12 @@
               </li>
               <li>
                 Four color balls will be randomly generated as the answer
-              <div class="iBullets">
-                <div class="instructBullet greenColor"></div>
-                <div class="instructBullet purpleColor"></div>
-                <div class="instructBullet blueColor"></div>
-                <div class="instructBullet coralColor"></div>
-              </div>
+                <div class="iBullets">
+                  <div class="instructBullet greenColor"></div>
+                  <div class="instructBullet purpleColor"></div>
+                  <div class="instructBullet blueColor"></div>
+                  <div class="instructBullet coralColor"></div>
+                </div>
               </li>
               <li class="clear">
                 Each turn, player get to pick four color dots which hopefully look the same as the answer
@@ -63,13 +63,56 @@
               </li>
             </ul>
           </div>
-          <!-- Later Shown / Listner: Mousedown -->
+          <!-- Display when the game starts -->
+          <table class="col-lg-12 table table-hover answerDisplay" style="display: none"> 
+            <tr class="inputName"> 
+              <th>TURN</th> 
+              <th>
+                <span class="glyphicon glyphicon glyphicon-tint"></span>
+              </th> 
+              <th>
+                <span class="glyphicon glyphicon-star"></span>
+              </th> 
+              <th>
+                <span class="glyphicon glyphicon-leaf"></span>
+              </th> 
+              <th>
+                <span class="glyphicon glyphicon-fire"></span>
+              </th> 
+              <th>HINT</th> 
+            </tr> 
+            <tr class="answerList"> 
+              <td> 
+                <p class="turnNum">1</p> 
+              </td> 
+              <td> 
+                <div class="ansBullet whiteColor"></div> 
+              </td> 
+              <td> 
+                <div class="ansBullet whiteColor"></div> 
+              </td> 
+              <td> 
+                <div class="ansBullet whiteColor"></div> 
+              </td> 
+              <td> 
+                <div class="ansBullet whiteColor"></div> 
+              </td> 
+              <td> 
+                <div class="hintBullet greyColor"></div> 
+                <div class="hintBullet greyColor"></div> 
+                <div class="hintBullet greyColor"></div> 
+                <div class="hintBullet greyColor"></div> 
+              </td>
+            </tr>
+          </table>
       </section>
       <section class="ansWrapper col-lg-3">
         <h3 class="whoseTurn">Whoever,</h3>
         <p class="yourTurn">just click the Start Button!</p>
         <div class="ansBox">
-          <div class="input-group-addon"><span class="glyphicon glyphicon-tint"></span></div>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-tint"></span>
+          </div>
           <input type="text" class="answer form-control" id="exampleInputAmount" placeholder="Make a guess!" disabled="true">
           <ul class="reference">
             <li>
