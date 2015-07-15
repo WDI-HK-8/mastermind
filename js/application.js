@@ -167,13 +167,13 @@ var fillHintBullet = function () {
 		var eachHint = hint[z];
 		switch(eachHint) {
 			case 'cCorrect':
-				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet colorTomato"></div>');
+				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet colorTomato" title="Got the color and place right!"></div>');
 				break;
 			case 'pCorrect':
-				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet colorSalmon"></div>');
+				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet colorSalmon" title="You got the right color but place it in the wrong location!"></div>');
 				break;
 			case 'incorrect':
-				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet crimson"></div>');
+				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet crimson" title="Opsss..Wrong color and wrong place!"></div>');
 				break;
 			}
 	}
@@ -258,7 +258,7 @@ var divClick = function (){
 		fillHintBullet ();
 		getWinner ();
 		if (winner !== undefined && winner !== null) {
-			$('body').html('<div class="championWrapper"><h1 class="champion">'+ winner + '</h1><p class="championText">You are the Boss!</p></div>');
+			$('body').html('<div class="championWrapper"><h1 class="champion">'+ winner + '</h1><p class="championText"><img src="assets/image/likeABoss.gif"></p></div>');
 			$('body').append('<audio src="assets/sound/rock.mp3" preload="auto" autoplay></audio>');
 		} else {
 			$('tr:last-child').after("<tr class=\"answerList\"><td><p class=\"turnNum\">1</p></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div></td></tr>");
@@ -320,7 +320,9 @@ $(document).on('click', '.showAns', function (){
 	$('div.solutionBullet').toggle("fast");
 });
 
-
+$(document).on('mouseover', '.hintBullet', function (){
+ $('div[title]').qtip();
+})
 
 
 
