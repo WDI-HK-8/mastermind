@@ -167,13 +167,13 @@ var fillHintBullet = function () {
 		var eachHint = hint[z];
 		switch(eachHint) {
 			case 'cCorrect':
-				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet colorTomato" title="Got the color and place right!"></div>');
+				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet colorTomato" title="Got the color and place right! **The sequence of the hint circle doesn\'t matter"></div>');
 				break;
 			case 'pCorrect':
-				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet colorSalmon" title="You got the right color but place it in the wrong location!"></div>');
+				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet colorSalmon" title="You got the right color but place it in the wrong location! **The sequence of the hint circle doesn\'t matter"></div>');
 				break;
 			case 'incorrect':
-				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet crimson" title="Opsss..Wrong color and wrong place!"></div>');
+				$($('tr:last-child td:last-child div')[z]).replaceWith('<div class="hintBullet crimson" title="Opsss..Wrong color and wrong place! **The sequence of the hint circle doesn\'t matter"></div>');
 				break;
 			}
 	}

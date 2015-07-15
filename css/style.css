@@ -336,6 +336,7 @@ h3.whoseTurn {
 .championWrapper {
 	width: 100%;
 	padding: 200px;
+	padding-top: 100px;
 	padding-bottom: 0;
 	background-color: lightblue;
 	text-align: center;
