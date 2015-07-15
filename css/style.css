@@ -17,7 +17,7 @@ ul, ol {
 /*h1 and name input*/
 .quesWrapper {
 	padding: 5px 10px 5px 20px;
-	background-color: lightgrey;
+	background-color: white;
 	height: 1000px;
 }
 
@@ -78,7 +78,7 @@ ul, ol {
 
 /*The answer input side*/
 .ansWrapper {
-	background-color: lightgrey;
+	background-color: white;
 	padding: 5px 15px 5px 15px;
 	height: 1000px;
 	width: 250px;
@@ -104,6 +104,7 @@ h3.whoseTurn {
 	border: none;
 	border-radius: 0;
 	height: 50px;
+	border: 1px solid lightgrey;
 	border-bottom: 2px solid darkgrey;
 }
 
@@ -139,7 +140,7 @@ h3.whoseTurn {
  .reference {
  	width: 100%;
  	height: 600px;
- 	background-color: lightcyan;
+ 	background-color: MintCream;
  	padding: 10px;
  	padding-top: 20px;
  }
@@ -225,24 +226,24 @@ h3.whoseTurn {
 	background-color: darkgrey;
 }
 
-.pacificaColor {
-	background-color: #4ECDC4;
+.blueColor {
+	background-color: DodgerBlue;
 }
 
-.caribicColor {
-	background-color: #EDC951;
+.blackColor {
+	background-color: Black;
 }
 
-.appleChicColor {
-	background-color: #C7F464;
+.coralColor {
+	background-color: Coral;
 }
 
-.cheeryPinkColor {
-	background-color: #FF6B6B;
+.purpleColor {
+	background-color: DarkOrchid;
 }
 
-.babyBlue {
-	background-color:#8AD4FC;
+.greenColor {
+	background-color: Green;
 }
 
 /*All the div in the reference list*/
@@ -259,23 +260,23 @@ h3.whoseTurn {
 }
 
 .pressA {
-	background-color: #4ECDC4;
+	background-color: DodgerBlue;
 }
 
 .pressB {
-	background-color: #EDC951;
+	background-color: Black;
 }
 
 .pressC {
-	background-color: #C7F464;
+	background-color: Coral;
 }
 
 .pressD {
-	background-color: #FF6B6B;
+	background-color: DarkOrchid;
 }
 
 .pressE {
-	background-color: #8AD4FC;
+	background-color: Green;
 }
 
 .correct {
@@ -360,7 +361,7 @@ h3.whoseTurn {
 	margin-top: 30px;
 	padding-left: 50px;
 	padding-top: 30px;
-	background-color: lightcyan;
+	background-color: MintCream;
 	height: 600px;
 }
 

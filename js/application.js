@@ -1,23 +1,5 @@
 $(document).ready(function(){
 
-// Sound Effect Plugin
-/**
- * @author Alexander Manzyuk <admsev@gmail.com>
- * Copyright (c) 2012 Alexander Manzyuk - released under MIT License
- * https://github.com/admsev/jquery-play-sound
- * Usage: $.playSound('http://example.org/sound.mp3');
-**/
-
-(function($){
-
-  $.extend({
-    playSound: function(){
-      return $("<embed src='"+arguments[0]+".mp3' hidden='true' autostart='true' loop='false' class='playSound'>" + "<audio autoplay='autoplay' style='display:none;' controls='controls'><source src='"+arguments[0]+".mp3' /><source src='"+arguments[0]+".ogg' /></audio>").appendTo('body');
-    }
-  });
-
-})(jQuery);
-
 //////////////////////////////
 // Main Code start here!//////
 //////////////////////////////
@@ -31,10 +13,11 @@ var solutionArray = [];
 var hintArray = [];
 var counter = 1;
 
-var color = ['pacifica', 'caribic', 'chic', 'cheery', 'baby'];
+var color = ['blueColor', 'blackColor', 'coralColor', 'purpleColor', 'greenColor'];
 var winner;
 
 // Initiate the Game
+// Gottaaaa Change the validation process
 var getNameGetStart = function (){
 	if ($('.p1Name').val().length !== 0 && $('.p2Name').val().length !== 0) {
 		playerOneName = $('.p1Name').val();
@@ -57,13 +40,14 @@ var readyGame = function (){
 	$('.showAns').attr('disabled', false);
 	$('.submitAns').attr('disabled', false);
 	$('.answer').attr('disabled', false);
-	$('.reference li:first-child').replaceWith('<li class="press"><div class="pressA" >pacifica</div> <p><span>enter</span>A<span>/a</span></p> </li>');
-	$('.reference li:nth-child(2)').replaceWith('<li class="press"><div class="pressB">caribic</div> <p><span>enter</span>B<span>/b</span></p> </li>');
-	$('.reference li:nth-child(3)').replaceWith('<li class="press"><div class="pressC">Chic</div> <p><span>enter</span>C<span>/c</span></p> </li>');
-	$('.reference li:nth-child(4)').replaceWith('<li class="press"><div class="pressD">Cheery</div> <p><span>enter</span>D<span>/d</span></p> </li>');
-	$('.reference li:nth-child(5)').replaceWith('<li class="press"><div class="pressE">Babyblue</div> <p><span>enter</span>E<span>/e</span></p> </li>');
+	$('.reference li:first-child').replaceWith('<li class="press"><div class="pressA" >Blue</div> <p><span>enter</span>A<span>/a</span></p> </li>');
+	$('.reference li:nth-child(2)').replaceWith('<li class="press"><div class="pressB">Black</div> <p><span>enter</span>B<span>/b</span></p> </li>');
+	$('.reference li:nth-child(3)').replaceWith('<li class="press"><div class="pressC">Orange</div> <p><span>enter</span>C<span>/c</span></p> </li>');
+	$('.reference li:nth-child(4)').replaceWith('<li class="press"><div class="pressD">Purple</div> <p><span>enter</span>D<span>/d</span></p> </li>');
+	$('.reference li:nth-child(5)').replaceWith('<li class="press"><div class="pressE">Green</div> <p><span>enter</span>E<span>/e</span></p> </li>');
 };
 
+// Don't use html to keep track of the track
 var displayPlayer = function (){
 	if ($('tr.answerList').length%2 === 0) {
 		$('.whoseTurn').text(playerTwoName + ',');
@@ -94,25 +78,26 @@ var generateSolution = function (){
 	return solutionArray;
 };
 
+// Switch is unnecessary 
 var drawSolution = function (){
 	var drawSolutionArray = [];
 	for (var x = 0; x < solutionArray.length; x++) {
 		var eachSolution = solutionArray[x];
 		switch(eachSolution) {
-			case 'pacifica':
-				drawSolutionArray.push('<div class="solutionBullet pacificaColor" style="display: none"></span>');
+			case 'blueColor':
+				drawSolutionArray.push('<div class="solutionBullet blueColor" style="display: none"></span>');
 				break;
-			case 'caribic':
-				drawSolutionArray.push('<div class="solutionBullet caribicColor" style="display: none"></span>');
+			case 'blackColor':
+				drawSolutionArray.push('<div class="solutionBullet blackColor" style="display: none"></span>');
 				break;
-			case 'chic':
-				drawSolutionArray.push('<div class="solutionBullet appleChicColor" style="display: none"></span>');
+			case 'coralColor':
+				drawSolutionArray.push('<div class="solutionBullet coralColor" style="display: none"></span>');
 				break;
-			case 'cheery':
-				drawSolutionArray.push('<div class="solutionBullet cheeryPinkColor" style="display: none"></span>');
+			case 'purpleColor':
+				drawSolutionArray.push('<div class="solutionBullet purpleColor" style="display: none"></span>');
 				break;
-			case 'baby':
-				drawSolutionArray.push('<div class="solutionBullet babyBlue" style="display: none"></span>');
+			case 'greenColor':
+				drawSolutionArray.push('<div class="solutionBullet greenColor" style="display: none"></span>');
 				break;
 		}
 	}
@@ -130,24 +115,24 @@ var fillAnsBullet = function () {
 	var ans = getAnswer ();
 	switch(ans) {
 		case 'A':
-			ans = "pacifica";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet pacificaColor"></div></td>');
+			ans = "blueColor";
+			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet blueColor"></div></td>');
 			break;
 		case 'B':
-			ans = "caribic";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet caribicColor"></div></td>');
+			ans = "blackColor";
+			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet blackColor"></div></td>');
 			break;
 		case 'C':
-			ans = "chic";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet appleChicColor"></div></td>');
+			ans = "coralColor";
+			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet coralColor"></div></td>');
 			break;
 		case 'D':
-			ans = "cheery";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet cheeryPinkColor"></div></td>');
+			ans = "purpleColor";
+			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet purpleColor"></div></td>');
 			break;
 		case 'E':
-			ans = "baby";
-			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet babyBlue"></div></td>');
+			ans = "greenColor";
+			$($('tr:last-child td')[counter]).replaceWith('<td><div class="ansBullet greenColor"></div></td>');
 			break;
 	}
 	return ans;
@@ -253,7 +238,7 @@ $(document).on('click', '.submitAns', function (){
 			getWinner ();
 			if (winner !== undefined && winner !== null) {
 				$('body').html('<div class="championWrapper"><h1 class="champion">'+ winner + '</h1><p class="championText">You are the Boss!</p></div>');
-				$.playSound('assets/sound/rock');
+				$('body').append('<audio src="assets/sound/rock.mp3" preload="auto" autoplay></audio>');
 			} else {
 				$('tr:last-child').after("<tr class=\"answerList\"><td><p class=\"turnNum\">1</p></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div></td></tr>");
 				displayPlayer();
@@ -295,7 +280,7 @@ var divClick = function (){
 		getWinner ();
 		if (winner !== undefined && winner !== null) {
 			$('body').html('<div class="championWrapper"><h1 class="champion">'+ winner + '</h1><p class="championText">You are the Boss!</p></div>');
-			$.playSound('assets/sound/rock');
+			$('body').append('<audio src="assets/sound/rock.mp3" preload="auto" autoplay></audio>');
 		} else {
 			$('tr:last-child').after("<tr class=\"answerList\"><td><p class=\"turnNum\">1</p></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"ansBullet whiteColor\"></div></td><td><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div><div class=\"hintBullet greyColor\"></div></td></tr>");
 			displayPlayer();
